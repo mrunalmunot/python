@@ -1,0 +1,80 @@
+#overall
+python -m unittest test_module1
+python -m unittest -v test_module1
+
+#class level
+python -m unittest test_module1.Testadd2num
+
+#single test
+python -m unittest test_module1.Testadd2num.test_sum_2pos_num
+
+#
+python test_module1.py
+python test_module1.py -v
+
+
+
+Frequently used assert methods in unittest are:
+
+assertEqual(a, b) - Tests if a equals to b
+
+assertAlmostEqual(a, b) - Tests if round(a-b, 7) is 0.
+
+assertTrue(x) - Tests if bool(x) is True.
+
+assertIs(a, b) - Tests if a is b.
+
+assertIsNone(x) - Tests if x is None
+
+assertIn(a, b) - Tests if a in b
+
+assertIsInstance(a, b) - Tests if a is an instance of b.
+
+assertRegexpMatches(s, r) - Tests if the regular expression pattern r is found in string s.
+
+assertItemsEqual(a, b) - Tests if sorted(a) equals to sorted(b)
+
+assertListEqual(a, b) - Tests if two lists a and b are same.
+
+assertMultiLineEqual(a, b) - Tests if two multiline strings a and b are equal.
+
+
+
+
+
+assertRaises tries to check if a specified Exception is raised, when the test runs.
+
+from proj.sample_module import add2num
+import unittest
+class SampleTestClass(unittest.TestCase):
+
+    def test_sample1(self):
+        self.assertRaises(TypeError, add2num, 3, 'hello')
+
+
+python -m unittest test.test_module2
+
+
+OR BY USING WITH
+
+from proj.sample_module import add2num
+import unittest
+
+class SampleTestClass(unittest.TestCase):
+
+    def test_sample1(self):
+        with self.assertRaises(TypeError) as e:
+            r = add2num(3, 'hello')
+            self.assertEqual(str(e.exception), "unsupported operand type(s) for +: 'int' and 'str'")
+
+
+
+Skipping Tests:
+unittest.skip
+unittest.skipIf
+unittest.skipUnless
+unittest.expectedFailure
+
+
+
+
