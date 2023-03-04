@@ -1,35 +1,33 @@
-import os
 import math
-#Import the necessary packages
-
+from math import sqrt
 
 def sim_int(p,n,r): 
     si = p*n*r/100
     print("The Simple Interest is",si)
-    print(dir())
+    print("Variables used: ", dir())
 
-def ceil_floor(a,b):
-    
-    print(math.ceil(eval(a)))
-    print(math.floor(eval(b)))
+def ceil_floor(a,b):    
+    print(math.ceil(eval(a)), math.ceil(eval(b)))
 
-from math import sqrt
-def lists():
+
+def list_of_sqrt(num_of_ele):
     lst=[]
-    for i in range(5):
-        lst.append(round(sqrt(int(input())), 2))
-    print(lst)
-    print(type(lst[-1]))
+    for i in range(num_of_ele):
+        lst.append(round(sqrt(int(input('val {0} =>'.format(i+1)))), 2))
+    print("Square Roots: ", lst)
     
 # Driver code
-p= int(input())
-n= int(input())
-r= int(input())    
+print("Get Simple Interest")
+p= int(input('p=> '))
+n= int(input('n=> '))
+r= int(input('r=> '))    
 sim_int(p,n,r)
 
-
-a=input()
-b=input()
+print("\nGet Ceil values")
+a=input('a=> ')
+b=input('b=> ')
 ceil_floor(a,b)
 
-lists()
+print("\nGet Square Roots values")
+num_of_ele=int(input('Enter Num Of Elements: '))
+list_of_sqrt(num_of_ele)
